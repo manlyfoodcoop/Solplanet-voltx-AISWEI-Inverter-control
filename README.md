@@ -1,6 +1,8 @@
 # Solplanet-voltx-AISWEI-Inverter-control
 Sample python code you can use / copy into your own projects to read and control the inverter / battery (DISCHARGE, CHARGE, HOLD). I use this in Sydney against my electricty provider (Amber) who offer the wholesale rate, so I basically code CHARGES and DISCHARGES based on the battery "state of charge", cost price / feed in price, time of day, predicted evening peak. At this stage I have only uploaded basic control code as I actually found this to be the hardest part of the project! Also callout to https://github.com/matus-markusek/homeassistant-solplanet who offer a great home assistant integration (which might suit more people), but code below might suit people who want to code outside of the Home Assistant eco system...
 
+** Don't forget to set your inverter app to "Custom mode" (rather than say "self-consumption mode") as this solution utilises the Custom scheduling capability which will be ignored by the system if you are in a different mode. This also means any custom mode schedules you enter will be overwritten (although you could code for this to preserve existing manually entered entries by reading them first and writing them back) **
+
 __________________________________________
 To see if this code is going to work against your inverter, run the curl commands below to see if you get anything back:
 
