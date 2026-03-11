@@ -3,9 +3,9 @@ Sample python code you can use / copy into your own projects to read and control
 __________________________________________
 To see if this code is going to work against your inverter, run the curl commands below to see if you get anything back:
 
-* First find the IP address of your inverter. Mine did not show up on my router list, so I ended up using a network scanner tool to find it (trial and error, using curl commands below). Once I found it I made it a static IP address using the DHCP options in my router
+* First find the IP address of your inverter. Mine did not show up on my router list, so I ended up using a network scanner tool to find it (trial and error, using curl commands below). Once I found it I made it a static IP address using the DHCP options on my router so I can then hard code the address in my code
 
-* Next get ther serial number of your inverter (as this is used as a basic security on some of the calls). Mine looked like AL010K5SQ25CXXX and was visible in the phone app and also on a sticker on the side of the inverter (NOT the dongle!)
+* Next get the serial number of your inverter (as this is used as a basic security on some of the calls). Mine looked like AL010K5SQ25CXXX and was visible in the phone app and also on a sticker on the side of the inverter (NOT the dongle!)
 
 * Now try this command (this example gets power settings)
   
@@ -22,4 +22,4 @@ To see if this code is going to work against your inverter, run the curl command
 
 If you get those commands working, the you should be able to use the python sample scripts!
 
-** NOTE: Scripts are provided as-is. Not sure if it voids any warranty or anything, but basically (as far as I can tell) these scripts use the same mechanisms as the mobile app (although the mobile app seems to route the commands via cloud)
+** NOTE: Scripts are provided as-is. Not sure if it voids any warranty or anything, but basically (as far as I can tell) these scripts use the same mechanisms as the mobile app (although the mobile app seems to route the commands via cloud). Still, in your code, maybe a good idea not the thrash between charge / discharge at high frequency!
