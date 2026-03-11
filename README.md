@@ -1,2 +1,25 @@
 # Solplanet-voltx-AISWEI-Inverter-control
-Sample python code you can use copy into your own projects to read and control the router (DISCHARGE, CHARGE, HOLD)
+Sample python code you can use / copy into your own projects to read and control the router (DISCHARGE, CHARGE, HOLD)
+__________________________________________
+To see if this code is going to work against your inverter, run the curl commands below to see if you get anything back:
+
+* First find the IP address of your inverter. Mine did not show up on my router list, so I ended up using a network scanner tool to find it (trial and error, using curl commands below). Once I found it I made it a static IP address using the DHCP options in my router
+
+* Next get ther serial number of your inverter (as this is used as a basic security on some of the calls). Mine looked like AL010K5SQ25CXXX and was visible in the phone app and also on a sticker on the side of the inverter (NOT the dongle!)
+
+* Now try this command (this example gets power settings)
+  
+  **curl "https://192.168.XXX.XXX:443/getdevdata.cgi?device=2&sn=AL010K5SQ25CXXX" --insecure**
+  
+  should come back with some data:
+  {"flg":1,"tim":"20260311110812","tmp":491,"fac":4995,"pac":164,"sac":219,"qac":145,"eto":-497,"etd":-86,"hto":157,"pf":75,"err":0,"vac":[2463],"iac":[7],"vpv":[0,0,0],"ipv":[0,0,0],"str":[],"stu":1,"pac1":-1,"qac1":-1,"pac2":-1,"qac2":-1,"pac3":-1,"qac3":-1,"grid_sts":1}
+
+* Also this command (this get the current schedule, which can be manipulated / scripted to provide control over the battery
+
+    **curl "https://192.168.XXX.XXX:443/getdefine.cgi" --insecure**
+    should return current schedule data:
+    {"Pin":8000,"Pout":8000,"Sun":[0,0,0,0,0,0],"Mon":[0,0,0,0,0,0],"Tus":[0,0,0,0,0,0],"Wen":[184580098,0,0,0,0,0],"Thu":[0,0,0,0,0,0],"Fri":[0,0,0,0,0,0],"Sat":[0,0,0,0,0,0]}
+
+If you get those commands working, the you should be able to use the python sample scripts!
+
+** NOTE: Scripts are provided as-is. Not sure if it voids any warranty or anything, but basically (as far as I can tell) these scripts use the same mechanisms as the mobile app (although the mobile app seems to route the commands via cloud)
