@@ -18,7 +18,8 @@ To see if this code is going to work against your inverter, run the curl command
 * Also this command (this get the current schedule, which can be manipulated / scripted to provide control over the battery
 
     **curl "https://192.168.XXX.XXX:443/getdefine.cgi" --insecure**
-    should return current schedule data:
+
+  should return current schedule data:
     {"Pin":8000,"Pout":8000,"Sun":[0,0,0,0,0,0],"Mon":[0,0,0,0,0,0],"Tus":[0,0,0,0,0,0],"Wen":[184580098,0,0,0,0,0],"Thu":[0,0,0,0,0,0],"Fri":[0,0,0,0,0,0],"Sat":[0,0,0,0,0,0]}
 
 If you get those commands working, the you should be able to use the python sample scripts!
