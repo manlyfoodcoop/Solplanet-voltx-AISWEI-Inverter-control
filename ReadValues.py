@@ -22,8 +22,8 @@ from systemd.daemon import notify
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # Global defines
-INVERTER_IP = "192.168.50.190"
-SERIAL_NUMBER = "AL010K5SQ25C0677"
+INVERTER_IP = "192.168.XXX.XXX"  # replace with your inverter's IP address
+SERIAL_NUMBER = "AL010K5SQ25C0XXX" # replace with your inverter's serial number
 SLAVE_ID = 1
 
 
